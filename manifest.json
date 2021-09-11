@@ -1,0 +1,23 @@
+{
+   "browser_action": {
+      "default_popup": "html/popup.html",
+      "default_title": "Marcy's Jammie Dodger"
+   },
+   "content_scripts": [ {
+      "js": [ "js/content.js" ],
+      "matches": [ "\u003Call_urls>" ]
+   } ],
+   "content_security_policy": "script-src 'self' https://www.google-analytics.com https://*.googleapis.com https://www.googletagmanager.com; object-src 'self'",
+   "description": "Dodges those jammy cookie notices. By Marcy.",
+   "icons": {
+      "128": "icons/icon-128.png",
+      "16": "icons/icon-16.png",
+	  "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+	  "64": "icons/icon-64.png"
+   },
+   "manifest_version": 2,
+   "name": "Marcy's Jammie Dodger",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.0.1"
+}
