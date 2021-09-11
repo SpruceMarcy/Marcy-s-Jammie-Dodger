@@ -45,6 +45,9 @@ function main(){
 		
 		if(gButCount>0||bButCount>0){
 			styleCaughtNotice(jar)
+		}
+		if(gButCount>0&&bButCount>0){
+			console.log("Buttons:")
 			console.log(goodButton.innerText)
 			console.log(badButton.innerText)
 		}
@@ -55,7 +58,7 @@ function main(){
 
 function isFixed(e){
 	pos = window.getComputedStyle(e).getPropertyValue("position")
-	return pos==="fixed" || pos==="absolute" || e.className.includes("cookie")
+	return pos==="fixed" || pos==="absolute" || e.className.toLowerCase().includes("cookie") || e.className.toLowerCase().includes("consent")
 }
 
 function getSimplestChild(e){
@@ -75,13 +78,13 @@ function getButtons(e){
 			buttons.push(c)
 		}
 	}
-	console.log(buttons)
+	//console.log(buttons)
 	return filterForChildren(buttons)
 }
 
 function isGoodButton(e){
 	bText = e.innerText.toLowerCase()
-	return bText.includes("reject") || bText.includes("manage") || bText.includes("configure") || bText.includes("option") || bText.includes("customi") || bText===("learn more")
+	return bText.includes("reject") || bText.includes("manage") || bText.includes("configure") || bText.includes("option") || bText.includes("customi") || bText===("learn more") || bText.includes("setting") 
 }
 function isBadButton(e){
 	bText = e.innerText.toLowerCase()
